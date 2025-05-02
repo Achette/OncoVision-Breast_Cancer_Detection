@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Rubik } from 'next/font/google'
 import { Provider } from '@/components/ui/provider'
 import './globals.css'
+import ClientLayout from './client-layout'
 
 const rubik = Rubik({
   variable: '--font-rubik',
@@ -23,9 +24,8 @@ export default function RootLayout({
     <html lang="pt-br" suppressHydrationWarning>
       <body className={`${rubik.variable}`}>
         <Provider>
-
-          {children}
-          </Provider>
+          <ClientLayout>{children}</ClientLayout>
+        </Provider>
       </body>
     </html>
   )

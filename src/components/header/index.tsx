@@ -14,9 +14,9 @@ export const Header = () => {
   return (
     <HStack
       w="full"
-      boxShadow="0 2px 4px rgba(0,0,0,0.1)"
+      bg="primaryLight"
+      boxShadow="0 2px 4px rgba(0, 0, 0, 0.2)"
       padding="1rem 8rem"
-      bg="white"
       justifyContent="space-between"
     >
       <Flex>
