@@ -20,7 +20,7 @@ export default function ClientLayout({
       <Flex
         bg={
           !hideBgColor
-            ? 'linear-gradient(#e84c8835,rgba(194, 58, 108, 0.2))'
+            ? 'linear-gradient(#e84c8835,rgba(194, 58, 108, 0.09))'
             : undefined
         }
         h="100vh"

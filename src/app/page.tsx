@@ -20,7 +20,7 @@ export default function Home() {
         <Flex
           w="fit-content"
           h="auto"
-          bgColor="rgba(255, 255, 255, 0.04)"
+          bgColor="rgba(255, 255, 255, 0.15)"
           backdropBlur="10px"
           p="2rem"
           border="1px solid rgba(255, 255, 255, 0.09)"
