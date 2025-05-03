@@ -37,6 +37,7 @@ export default function Login() {
               type="email"
               borderColor="input"
               color="secondary"
+              pl="0.5rem"
             />
             <Field.HelperText></Field.HelperText>
           </Field.Root>
@@ -52,6 +53,7 @@ export default function Login() {
               type="password"
               borderColor="input"
               color="secondary"
+              pl="0.5rem"
             />
             <Field.HelperText></Field.HelperText>
           </Field.Root>
@@ -84,6 +86,7 @@ export default function Login() {
               href="/sign-up"
               color="primary"
               fontWeight={600}
+              textDecor="none"
             >
               Cadastre-se
             </ChakraLink>
