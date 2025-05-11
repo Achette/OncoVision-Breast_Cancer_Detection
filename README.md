@@ -24,10 +24,10 @@ O objetivo do OncoVision é fornecer uma interface intuitiva e eficiente para an
 │   ├── components/       # Componentes reutilizáveis
 │   ├── theme/            # Configurações de tema
 ├── .gitignore            # Arquivos ignorados pelo Git
-├──                       # Configuração do Next.js
-├──                       # Dependências e scripts do projeto
-├──                       # Configuração do TypeScript
-└──                       # Documentação do projeto
+├── next.config.js        # Configuração do Next.js
+├── [package.json]        # Dependências e scripts do projeto
+├── [tsconfig.json]       # Configuração do TypeScript
+└── [README.md]           # Documentação do projeto
 ```
 
 ## 📦 Instalação
@@ -35,7 +35,7 @@ O objetivo do OncoVision é fornecer uma interface intuitiva e eficiente para an
 1. Certifique-se de ter o **Node.js** instalado em sua máquina. Você pode baixá-lo [aqui](https://nodejs.org/).
 2. Clone o repositório do projeto:
    ```bash
-   git clone https://github.com/seu-usuario/oncovision.git
+   git clone https://github.com/Achette/OncoVision-Breast_Cancer_Detection.git
    ```
 3. Navegue até o diretório do projeto:
    ```bash
@@ -54,7 +54,7 @@ O objetivo do OncoVision é fornecer uma interface intuitiva e eficiente para an
 ## 📊 DER - Diagrama Relacional
 
 <div align="center">
-  <a href="https://mermaid.live/edit#pako:eNq1lk2P2jAQhv9K5NOuBDRA-MqhUrtbtSu1Ktr2VCEhbzIbrE3syHa2SxH_veNAiAk2PTUHIPPOVx5HM-xIIlIgMUlyqtQ9o5mkxYoHeNWW4MPyIdgdDObSTOcQByvyUQJVOrijPAEZLCWkLNFMcBOwIm3AK0iFZhMyHISDsNH2h6-zUpXe2LWW33_8DN5JyJjSILv2XGSMe3NZDV1kLA9aa_78Ca0brCLk1pvx8djHkm5zQVM7baVAclogF6Ul41mrlBj5W8j0XHFk_2qe5j-mfgRVCq7g7CzFC_B_hj_wstL3VFM7VNKUVWpdAMUEvCqe7PPR8KYrCR61BMkKQJAeneKL5ZFUIYTecFC-yokoSproqx48oa9Mb6_qsC4F49qXRG0LfALpy_EssQear1N8Tm5efo_fEaICP0KX1gJ0qTU-l2DBc8k2OrfegPOrJ2zO-g00l3iJzOV1BIZvvdJ-Zh65xeZxqMl5NAuex8Pm53VpEF51OFH09dKA9OiXLB2OV0ema1iUJzUOsDvIQN6EveFt65HTJ8ibcXKDGwI4y7hYkR7O_m80P9zceut_OQxgV3GWnope7cjTjEUYz1hDuqaII8VffY2QrDpm1q1RoHE79xwNm6XY77-vN9a5pYV4tJudZoTO-uio9vh3SQ2Ug2YtN-PR6bSjXh6r061D3_iQHskkS0msZQU9UoAsqLkl9cmsiN4AwiNmtadUvpjNvseYkvJfQhRNmBRVtiHxM80V3lWlwX78n3GySuApyDtRcU3i8ajOQeIdeSPxcDIbhItZNIlm42G4WEymPbJF82A2D-fj0ShahBF-zsf7HvlTlw0Hiyiah9E4nM6Hk3A62f8FdXvOZw">
-    <img src="https://mermaid.ink/img/pako:eNq1lk2P2jAQhv9K5NOuBDRA-MqhUrtbtSu1Ktr2VCEhbzIbrE3syHa2SxH_veNAiAk2PTUHIPPOVx5HM-xIIlIgMUlyqtQ9o5mkxYoHeNWW4MPyIdgdDObSTOcQByvyUQJVOrijPAEZLCWkLNFMcBOwIm3AK0iFZhMyHISDsNH2h6-zUpXe2LWW33_8DN5JyJjSILv2XGSMe3NZDV1kLA9aa_78Ca0brCLk1pvx8djHkm5zQVM7baVAclogF6Ul41mrlBj5W8j0XHFk_2qe5j-mfgRVCq7g7CzFC_B_hj_wstL3VFM7VNKUVWpdAMUEvCqe7PPR8KYrCR61BMkKQJAeneKL5ZFUIYTecFC-yokoSproqx48oa9Mb6_qsC4F49qXRG0LfALpy_EssQear1N8Tm5efo_fEaICP0KX1gJ0qTU-l2DBc8k2OrfegPOrJ2zO-g00l3iJzOV1BIZvvdJ-Zh65xeZxqMl5NAuex8Pm53VpEF51OFH09dKA9OiXLB2OV0ema1iUJzUOsDvIQN6EveFt65HTJ8ibcXKDGwI4y7hYkR7O_m80P9zceut_OQxgV3GWnope7cjTjEUYz1hDuqaII8VffY2QrDpm1q1RoHE79xwNm6XY77-vN9a5pYV4tJudZoTO-uio9vh3SQ2Ug2YtN-PR6bSjXh6r061D3_iQHskkS0msZQU9UoAsqLkl9cmsiN4AwiNmtadUvpjNvseYkvJfQhRNmBRVtiHxM80V3lWlwX78n3GySuApyDtRcU3i8ajOQeIdeSPxcDIbhItZNIlm42G4WEymPbJF82A2D-fj0ShahBF-zsf7HvlTlw0Hiyiah9E4nM6Hk3A62f8FdXvOZw?type=png" alt="Diagrama Relacional">
+  <a href="https://mermaid.live/edit#pako:eNqNVM1u2zAMfhWBp7RLDTux41i3oj1stwHdLpuHgrUYR6gtGbKctQ3yQHuOvdhk52f2bKDTSeL3kfxEUtpDpgUBh6zAur6XmBssU8Xc6izsa02G7Y-Wdn14sEaqnDXOrrCkMVI5t5_aiB5iKJe1JTO76hkLnUs1u2KcnRytfiZ1JBxS1RfxSVWNvUeLAyWbQqNlJaF6NChkU09jll5sY2garMjIkpy0aRgN4TRSl1rbraK6nlT82ZCQmZVaDSRLZVl1gca1K_CJip7Z3Zm-OIEsc0IsiUe076T76AqtzesoqxT_E7ZDc7KnKF13RrG__5jUcNvYLSkrM2y5D2R2MqOBjssYnIdnfhmWNtFOD0Qe52OaOp6YzmWHhRTt3Vr7rENb9pPWhevZO5WbUnzq1ewygMOC_BOxeyspBCmwmxu38T3v2u17s8DZBt-mycGAeW4jZ5ZO77EXJoXrvtvf5-HuijWhQDb2Oofs5Rypy7Syv3-VPYWON91Y7r4AHBLHtexIMIfcSAHcmobmUJIpsT1CV-kUXHT3jwB3W4HmOYVUHZxPheqb1uXZzegm3wLfYFG7U1O1fT79VxcKKUHmTjfKAo-SLgTwPbwAj9een8RhHATLcBEESTyHV-ArL17762W0CBaLKIiiVXSYw1uX1PeSMFz74TLw42S9CqPDH0UenbU">
+    <img src="https://mermaid.ink/img/pako:eNqNVM1u2zAMfhWBp7RLDTux41i3oj1stwHdLpuHgrUYR6gtGbKctQ3yQHuOvdhk52f2bKDTSeL3kfxEUtpDpgUBh6zAur6XmBssU8Xc6izsa02G7Y-Wdn14sEaqnDXOrrCkMVI5t5_aiB5iKJe1JTO76hkLnUs1u2KcnRytfiZ1JBxS1RfxSVWNvUeLAyWbQqNlJaF6NChkU09jll5sY2garMjIkpy0aRgN4TRSl1rbraK6nlT82ZCQmZVaDSRLZVl1gca1K_CJip7Z3Zm-OIEsc0IsiUe076T76AqtzesoqxT_E7ZDc7KnKF13RrG__5jUcNvYLSkrM2y5D2R2MqOBjssYnIdnfhmWNtFOD0Qe52OaOp6YzmWHhRTt3Vr7rENb9pPWhevZO5WbUnzq1ewygMOC_BOxeyspBCmwmxu38T3v2u17s8DZBt-mycGAeW4jZ5ZO77EXJoXrvtvf5-HuijWhQDb2Oofs5Rypy7Syv3-VPYWON91Y7r4AHBLHtexIMIfcSAHcmobmUJIpsT1CV-kUXHT3jwB3W4HmOYVUHZxPheqb1uXZzegm3wLfYFG7U1O1fT79VxcKKUHmTjfKAo-SLgTwPbwAj9een8RhHATLcBEESTyHV-ArL17762W0CBaLKIiiVXSYw1uX1PeSMFz74TLw42S9CqPDH0UenbU?type=png" alt="Diagrama Relacional">
   </a>
 </div>
