@@ -10,6 +10,7 @@ const config = defineConfig({
         secondary: { value: '#4a5568' },
         light: { value: '#f5f7fa' },
         dark: { value: '#2d3748' },
+        darkSecondary: { value: '#2c3e50' },
         input: { value: '#ddd' },
         success: { value: '#48bb78' },
         warning: { value: '#ed8936' },
