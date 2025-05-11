@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { SlLogout } from 'react-icons/sl'
 import {
   Flex,
   HStack,
@@ -42,30 +43,9 @@ export const Header = () => {
           ml="1.25rem"
           _hover={{ color: 'primary' }}
         >
-          Sobre
+          Olá, Dr. Fulano
         </ChakraLink>
-        <ChakraLink
-          as={Link}
-          href="#"
-          color="dark"
-          fontWeight={500}
-          textDecor="none"
-          ml="1.25rem"
-          _hover={{ color: 'primary' }}
-        >
-          Como Funciona
-        </ChakraLink>
-        <ChakraLink
-          as={Link}
-          href="#"
-          color="dark"
-          fontWeight={500}
-          textDecor="none"
-          ml="1.25rem"
-          _hover={{ color: 'primary' }}
-        >
-          Contato
-        </ChakraLink>
+
         <Button
           bgColor="primary"
           p={4}
@@ -73,7 +53,8 @@ export const Header = () => {
           ml="1.25rem"
           _hover={{ bgColor: 'primaryDark' }}
         >
-          Cadastrar
+          <SlLogout />
+          <Text ml={2}>Sair</Text>
         </Button>
       </HStack>
     </HStack>
