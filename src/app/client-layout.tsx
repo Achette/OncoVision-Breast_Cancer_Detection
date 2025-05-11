@@ -12,21 +12,21 @@ export default function ClientLayout({
 }) {
   const pathname = usePathname()
   const hideHeader = ['/', '/login', '/sign-up'].includes(pathname)
-  const hideBgColor = ['/home'].includes(pathname)
+  const hideStyles = ['/dash'].includes(pathname)
 
   return (
     <Provider>
       {!hideHeader && <Header />}
       <Flex
         bg={
-          !hideBgColor
+          !hideStyles
             ? 'linear-gradient(#e84c8835,rgba(194, 58, 108, 0.09))'
             : undefined
         }
-        h="100vh"
+        h={hideStyles ? '' : '100vh'}
         w="100%"
         overflowX="hidden"
-        justifyContent={'center'}
+        justifyContent="center"
         alignItems="center"
       >
         {children}
