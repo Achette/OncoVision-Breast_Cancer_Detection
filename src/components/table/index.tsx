@@ -1,5 +1,6 @@
-import { Table, Badge, Flex } from '@chakra-ui/react'
+import { Table, Flex } from '@chakra-ui/react'
 import { RiDeleteBin6Line } from 'react-icons/ri'
+import { ResultBadge } from '../badge'
 
 export const DashTable = () => {
   return (
@@ -32,7 +33,7 @@ export const DashTable = () => {
 
       <Table.Body>
         {/* Sempre itere a Table.Row - seguir a estrutura */}
-        <Table.Row bg="light" h="2rem" fontSize="1rem">
+        <Table.Row bg="light" h="2.5rem" fontSize="1rem">
           <Table.Cell textAlign="center" color="dark">
             1
           </Table.Cell>
@@ -49,9 +50,7 @@ export const DashTable = () => {
             30.1
           </Table.Cell>
           <Table.Cell textAlign="center">
-            <Badge fontSize="1rem" p="0.25rem" colorPalette="green">
-              Benigno
-            </Badge>
+            <ResultBadge result={0} />
           </Table.Cell>
           <Table.Cell textAlign="center" color="error">
             <Flex justifyContent="center" fontSize="1.15rem">
@@ -60,7 +59,7 @@ export const DashTable = () => {
           </Table.Cell>
         </Table.Row>
 
-        <Table.Row bg="light" h="2rem" fontSize="1rem">
+        <Table.Row bg="light" h="2.5rem" fontSize="1rem">
           <Table.Cell textAlign="center" color="dark">
             2
           </Table.Cell>
@@ -77,9 +76,7 @@ export const DashTable = () => {
             35.7
           </Table.Cell>
           <Table.Cell textAlign="center">
-            <Badge fontSize="1rem" p="0.25rem" colorPalette="red">
-              Maligno
-            </Badge>
+            <ResultBadge result={1} />
           </Table.Cell>
           <Table.Cell textAlign="center" color="error">
             <Flex justifyContent="center" fontSize="1.15rem">
