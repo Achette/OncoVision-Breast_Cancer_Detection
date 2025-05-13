@@ -1,6 +1,10 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SlLogout } from 'react-icons/sl'
+import logo from '../../../public/logo.png'
+import { capitalize } from '@/utils/capitalize'
+import * as accessUser from '@/hooks/useLocalStorage'
 import {
   Flex,
   HStack,
@@ -9,9 +13,10 @@ import {
   Link as ChakraLink,
   Button,
 } from '@chakra-ui/react'
-import logo from '../../../public/logo.png'
 
 export const Header = () => {
+  const user = accessUser.getUser()
+
   return (
     <HStack
       w="full"
@@ -43,7 +48,7 @@ export const Header = () => {
           ml="1.25rem"
           _hover={{ color: 'primary' }}
         >
-          Olá, Dr. Fulano
+          Olá, Dr(a). {capitalize(user)}
         </ChakraLink>
 
         <Button
