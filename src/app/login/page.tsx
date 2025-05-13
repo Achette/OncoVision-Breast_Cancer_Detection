@@ -1,10 +1,11 @@
 'use client'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { Toaster, toaster } from '@/components/ui/toaster'
 import { UserService } from '@/service/auth-services'
 import * as accessToken from '@/hooks/useLocalStorage'
-import { Toaster, toaster } from '@/components/ui/toaster'
+import { capitalize } from '@/utils/capitalize'
 import {
   Box,
   Heading,
@@ -21,33 +22,39 @@ export default function Login() {
   const router = useRouter()
   const [user, setUser] = useState({ email: '', password: '' })
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    try {
-      if (!user.email || !user.password) {
-        throw new Error('Email and password are required')
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent) => {
+      e.preventDefault()
+      try {
+        if (!user.email || !user.password) {
+          throw new Error('Email and password are required')
+        }
+
+        const { email, password } = user
+
+        const response = await UserService.login(email, password)
+        accessToken.saveToken(response.hash)
+        accessToken.saveUser(user.email)
+
+        toaster.create({
+          title: 'Sucesso',
+          description: `Bem-vinda ${capitalize(user.email)}!`,
+          type: 'success',
+        })
+
+        router.push('/dash')
+      } catch (e: unknown) {
+        toaster.create({
+          title: 'Erro',
+          description: `${
+            e instanceof Error ? e.message : 'An unknown error occurred'
+          }`,
+          type: 'error',
+        })
       }
-
-      const { email, password } = user
-
-      const response = await UserService.login(email, password)
-      accessToken.saveToken(response.hash)
-      toaster.create({
-        title: 'Sucesso',
-        description: `${response.message}`,
-        type: 'success',
-      })
-      router.push('/dash')
-    } catch (e: unknown) {
-      toaster.create({
-        title: 'Erro',
-        description: `${
-          e instanceof Error ? e.message : 'An unknown error occurred'
-        }`,
-        type: 'error',
-      })
-    }
-  }
+    },
+    [router, user]
+  )
 
   return (
     <Box
