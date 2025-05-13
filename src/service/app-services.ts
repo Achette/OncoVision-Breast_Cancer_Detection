@@ -4,9 +4,10 @@ import { requestBackend } from './requests'
 
 export const AppServices = {
   getHistory: async () => {
+    const { token, user } = getAccessToken()
     const config: AxiosRequestConfig = {
       method: 'GET',
-      url: `/history?hash=${getAccessToken()}`,
+      url: `/history/${user}?hash=${token}`,
       signal: AbortSignal.timeout(5000),
     }
 
@@ -15,5 +16,8 @@ export const AppServices = {
 }
 
 export const getAccessToken = () => {
-  return accessToken.getToken()
+  const token = accessToken.getToken()
+  const user = accessToken.getUser()
+
+  return { token, user }
 }
