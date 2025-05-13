@@ -1,3 +1,10 @@
+'use client'
+import { useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { UserService } from '@/service/auth-services'
+import * as accessToken from '@/hooks/useLocalStorage'
+import { Toaster, toaster } from '@/components/ui/toaster'
 import {
   Box,
   Heading,
@@ -9,9 +16,39 @@ import {
   Text,
   Link as ChakraLink,
 } from '@chakra-ui/react'
-import Link from 'next/link'
 
 export default function Login() {
+  const router = useRouter()
+  const [user, setUser] = useState({ email: '', password: '' })
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      if (!user.email || !user.password) {
+        throw new Error('Email and password are required')
+      }
+
+      const { email, password } = user
+
+      const response = await UserService.login(email, password)
+      accessToken.saveToken(response.hash)
+      toaster.create({
+        title: 'Sucesso',
+        description: `${response.message}`,
+        type: 'success',
+      })
+      router.push('/dash')
+    } catch (e: unknown) {
+      toaster.create({
+        title: 'Erro',
+        description: `${
+          e instanceof Error ? e.message : 'An unknown error occurred'
+        }`,
+        type: 'error',
+      })
+    }
+  }
+
   return (
     <Box
       as="form"
@@ -21,6 +58,7 @@ export default function Login() {
       bgColor="light"
       borderRadius="1rem"
       boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
+      onSubmit={handleSubmit}
     >
       <VStack gap="1.5rem">
         <Heading as="h2" color="primary" fontSize="1.5rem" fontWeight={700}>
@@ -34,10 +72,11 @@ export default function Login() {
             </Field.Label>
             <Input
               placeholder="Seu email"
-              type="email"
+              type="text"
               borderColor="input"
               color="secondary"
               pl="0.5rem"
+              onChange={(e) => setUser({ ...user, email: e.target.value })}
             />
             <Field.HelperText></Field.HelperText>
           </Field.Root>
@@ -54,6 +93,7 @@ export default function Login() {
               borderColor="input"
               color="secondary"
               pl="0.5rem"
+              onChange={(e) => setUser({ ...user, password: e.target.value })}
             />
             <Field.HelperText></Field.HelperText>
           </Field.Root>
@@ -93,6 +133,7 @@ export default function Login() {
           </Text>
         </Box>
       </VStack>
+      <Toaster />
     </Box>
   )
 }
