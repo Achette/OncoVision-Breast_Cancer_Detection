@@ -19,17 +19,22 @@ O objetivo do OncoVision é fornecer uma interface intuitiva e eficiente para an
 
 ```plaintext
 .
-├── .next/                # Arquivos gerados pelo Next.js
-├── public/               # Arquivos estáticos
+├── .next/                # Arquivos gerados pelo Next.js durante a build e execução.
+├── public/               # Arquivos estáticos, como imagens, fontes e outros recursos públicos.
 ├── src/
-│   ├── app/              # Configuração e layout principal
-│   ├── components/       # Componentes reutilizáveis
-│   ├── theme/            # Configurações de tema
-├── .gitignore            # Arquivos ignorados pelo Git
-├── next.config.js        # Configuração do Next.js
-├── [package.json]        # Dependências e scripts do projeto
-├── [tsconfig.json]       # Configuração do TypeScript
-└── [README.md]           # Documentação do projeto
+│   ├── app/              # Configuração e layout principal da aplicação.
+│   ├── components/       # Componentes reutilizáveis da interface do usuário.
+│   ├── constants/        # Constantes globais utilizadas no projeto.
+│   ├── hooks/            # Hooks personalizados para lógica reutilizável.
+│   ├── models/           # Definições de tipos e interfaces do TypeScript.
+│   ├── services/         # Serviços para comunicação com APIs e lógica de negócios.
+│   ├── theme/            # Configurações de tema e estilos globais.
+│   ├── utils/            # Funções utilitárias e helpers.
+├── .gitignore            # Arquivos e pastas ignorados pelo Git.
+├── next.config.js        # Configuração personalizada do Next.js.
+├── [package.json]        # Dependências, scripts e metadados do projeto.
+├── [tsconfig.json]       # Configuração do TypeScript para o projeto.
+└── [README.md]           # Documentação do projeto.
 ```
 
 ## 📦 Instalação
