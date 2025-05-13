@@ -1,8 +1,9 @@
 import { Table, Flex } from '@chakra-ui/react'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { ResultBadge } from '../badge'
+import { HistoryItem } from '@/models'
 
-export const DashTable = () => {
+export const DashTable = ({ history }: { history?: HistoryItem[] }) => {
   return (
     <Table.Root overflow="auto">
       <Table.Header>
@@ -11,7 +12,7 @@ export const DashTable = () => {
             ID
           </Table.ColumnHeader>
           <Table.ColumnHeader textAlign="center" color="dark">
-            Data
+            Área Média
           </Table.ColumnHeader>
           <Table.ColumnHeader textAlign="center" color="dark">
             Raio Médio
@@ -23,6 +24,9 @@ export const DashTable = () => {
             Perímetro Médio
           </Table.ColumnHeader>
           <Table.ColumnHeader textAlign="center" color="dark">
+            Suavidade Média
+          </Table.ColumnHeader>
+          <Table.ColumnHeader textAlign="center" color="dark">
             Resultado
           </Table.ColumnHeader>
           <Table.ColumnHeader textAlign="center" color="dark">
@@ -32,58 +36,37 @@ export const DashTable = () => {
       </Table.Header>
 
       <Table.Body>
-        {/* Sempre itere a Table.Row - seguir a estrutura */}
-        <Table.Row bg="light" h="2.5rem" fontSize="1rem">
-          <Table.Cell textAlign="center" color="dark">
-            1
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="dark">
-            2023-10-01
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="dark">
-            15.2
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="dark">
-            20.5
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="dark">
-            30.1
-          </Table.Cell>
-          <Table.Cell textAlign="center">
-            <ResultBadge result={0} />
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="error">
-            <Flex justifyContent="center" fontSize="1.15rem">
-              <RiDeleteBin6Line />
-            </Flex>
-          </Table.Cell>
-        </Table.Row>
-
-        <Table.Row bg="light" h="2.5rem" fontSize="1rem">
-          <Table.Cell textAlign="center" color="dark">
-            2
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="dark">
-            2023-10-02
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="dark">
-            18.4
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="dark">
-            22.1
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="dark">
-            35.7
-          </Table.Cell>
-          <Table.Cell textAlign="center">
-            <ResultBadge result={1} />
-          </Table.Cell>
-          <Table.Cell textAlign="center" color="error">
-            <Flex justifyContent="center" fontSize="1.15rem">
-              <RiDeleteBin6Line />
-            </Flex>
-          </Table.Cell>
-        </Table.Row>
+        {history &&
+          history.map((item, index) => (
+            <Table.Row key={index} bg="light" h="2.5rem" fontSize="1rem">
+              <Table.Cell textAlign="center" color="dark">
+                {index + 1}
+              </Table.Cell>
+              <Table.Cell textAlign="center" color="dark">
+                {item.input.mean_area}
+              </Table.Cell>
+              <Table.Cell textAlign="center" color="dark">
+                {item.input.mean_radius}
+              </Table.Cell>
+              <Table.Cell textAlign="center" color="dark">
+                {item.input.mean_texture}
+              </Table.Cell>
+              <Table.Cell textAlign="center" color="dark">
+                {item.input.mean_perimeter}
+              </Table.Cell>
+              <Table.Cell textAlign="center" color="dark">
+                {item.input.mean_smoothness}
+              </Table.Cell>
+              <Table.Cell textAlign="center">
+                <ResultBadge result={item.prediction} />
+              </Table.Cell>
+              <Table.Cell textAlign="center" color="error">
+                <Flex justifyContent="center" fontSize="1.15rem">
+                  <RiDeleteBin6Line />
+                </Flex>
+              </Table.Cell>
+            </Table.Row>
+          ))}
       </Table.Body>
     </Table.Root>
   )
