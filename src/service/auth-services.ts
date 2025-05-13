@@ -1,10 +1,7 @@
 import axios from 'axios'
 import { BASE_URL } from '@/constants/system'
+import { LoginResponse } from '@/models'
 
-type LoginResponse = {
-  hash: string
-  message: string
-}
 export const UserService = {
   login: async (username: string, password: string): Promise<LoginResponse> => {
     const response = await axios.post(
