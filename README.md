@@ -13,6 +13,7 @@ O objetivo do OncoVision é fornecer uma interface intuitiva e eficiente para an
 - **TypeScript**: Superset do JavaScript que adiciona tipagem estática ao código.
 - **Chakra UI**: Biblioteca de componentes para construção de interfaces de usuário acessíveis e responsivas.
 - **Axios**: Biblioteca para realizar requisições HTTP de forma simples e eficiente, utilizada para comunicação com a API do sistema.
+- **React-Icons**: Biblioteca que fornece uma ampla coleção de ícones populares para serem utilizados em projetos React, facilitando a personalização e a criação de interfaces visuais atraentes.
 
 ## 📂 Estrutura do Projeto
 
