@@ -2,9 +2,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { SlLogout } from 'react-icons/sl'
-import logo from '../../../public/logo.png'
+import logo from '../../../public/logo.svg'
 import { capitalize } from '@/utils/capitalize'
-import * as accessUser from '@/hooks/useLocalStorage'
+import { getUser } from '@/hooks/useLocalStorage'
 import {
   Flex,
   HStack,
@@ -15,7 +15,7 @@ import {
 } from '@chakra-ui/react'
 
 export const Header = () => {
-  const user = accessUser.getUser()
+  const user = getUser()
 
   return (
     <HStack
@@ -27,7 +27,7 @@ export const Header = () => {
     >
       <Flex>
         <HStack>
-          <Image src={logo} alt="Breat Cancer Detection Logo" width={50} />
+          <Image src={logo} alt="Breat Cancer Detection Logo" width={40} />
           <VStack alignItems="center" gap={0}>
             <Text color="primary" fontSize="1.75rem" fontWeight={600}>
               OncoVision
