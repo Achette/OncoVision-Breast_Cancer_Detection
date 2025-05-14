@@ -15,8 +15,11 @@ const config = defineConfig({
         success: { value: '#48bb78' },
         warning: { value: '#ed8936' },
         error: { value: '#e53e3e' },
+        neutral: { value: '#363795' },
+        neutralDark: { value: '#252684' },
         badgeMalignant: { value: 'rgba(231, 76, 60, 0.1)' },
         badgeBenign: { value: 'rgba(46, 204, 113, 0.1)' },
+        greyLight: { value: '#eee' },
       },
       fonts: {
         body: { value: 'Rubik, sans-serif' },
