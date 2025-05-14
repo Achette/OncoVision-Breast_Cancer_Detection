@@ -3,8 +3,8 @@ import { useCallback, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Toaster, toaster } from '@/components/ui/toaster'
+import { saveToken, saveUser } from '@/hooks/useLocalStorage'
 import { UserService } from '@/service/auth-services'
-import * as accessToken from '@/hooks/useLocalStorage'
 import { capitalize } from '@/utils/capitalize'
 import {
   Box,
@@ -33,8 +33,8 @@ export default function Login() {
         const { email, password } = user
 
         const response = await UserService.login(email, password)
-        accessToken.saveToken(response.hash)
-        accessToken.saveUser(user.email)
+        saveToken(response.hash)
+        saveUser(user.email)
 
         toaster.create({
           title: 'Sucesso',
@@ -75,10 +75,10 @@ export default function Login() {
         <Box w="full">
           <Field.Root required>
             <Field.Label color="dark" fontSize="1rem">
-              E-mail <Field.RequiredIndicator />
+              Usuário <Field.RequiredIndicator />
             </Field.Label>
             <Input
-              placeholder="Seu email"
+              placeholder="Seu usuário"
               type="text"
               borderColor="input"
               color="secondary"
