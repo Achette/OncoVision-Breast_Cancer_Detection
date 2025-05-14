@@ -12,7 +12,7 @@ export default function ClientLayout({
 }) {
   const pathname = usePathname()
   const hideHeader = ['/', '/login', '/sign-up'].includes(pathname)
-  const hideStyles = ['/dash'].includes(pathname)
+  const hideStyles = ['/dash', '/new-prediction'].includes(pathname)
 
   return (
     <Provider>
