@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Box, Button, Flex, HStack, Text, VStack } from '@chakra-ui/react'
 
-import logo from '../../public/logo.png'
+import logo from '../../public/logo.svg'
 
 export default function Home() {
   const router = useRouter()
@@ -18,14 +18,15 @@ export default function Home() {
     >
       <VStack>
         <Flex
-          w="fit-content"
+          w="20rem"
           h="auto"
           bgColor="rgba(255, 255, 255, 0.15)"
           backdropBlur="10px"
           p="2rem"
           border="1px solid rgba(255, 255, 255, 0.09)"
           boxShadow="0 4px 30px rgba(0, 0, 0, 0.1)"
-          borderRadius="100%"
+          borderRadius="50%"
+          justifyContent="center"
         >
           <Image src={logo} alt="logo" width={160} />
         </Flex>
