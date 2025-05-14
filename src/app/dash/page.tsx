@@ -1,17 +1,27 @@
 'use client'
 import { useCallback, useEffect, useState } from 'react'
 import { LuCirclePlus } from 'react-icons/lu'
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, Spinner, Text } from '@chakra-ui/react'
 import { DashTable } from '@/components/table'
 import { HistoryPayload } from '@/models'
 import { AppServices } from '@/service/app-services'
+import { useRouter } from 'next/navigation'
 
 export default function HomePage() {
+  const router = useRouter()
   const [history, setHistory] = useState<HistoryPayload>()
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   const getHistoryData = useCallback(async () => {
-    const response = await AppServices.getHistory()
-    setHistory(response.data)
+    setIsLoading(true)
+    try {
+      const response = await AppServices.getHistory()
+      setHistory(response.data)
+    } catch (error) {
+      console.error('Erro ao buscar histórico:', error)
+    } finally {
+      setIsLoading(false)
+    }
   }, [])
 
   useEffect(() => {
@@ -30,15 +40,26 @@ export default function HomePage() {
           bgColor="darkSecondary"
           p="1rem 2rem"
           _hover={{ bgColor: 'secondary' }}
+          onClick={() => router.push('new-prediction')}
         >
           <LuCirclePlus />
           <Text ml={2}>Nova Predição</Text>
         </Button>
       </Flex>
 
-      <Box w="full" mt="2rem" overflowX="auto">
-        <DashTable history={history?.history} />
-      </Box>
+      {isLoading ? (
+        <Flex justifyContent="center" alignItems="center" mt="12rem">
+          <Spinner size="xl" color="dark" />
+        </Flex>
+      ) : history ? (
+        <Box w="full" mt="2rem" overflowX="auto">
+          <DashTable history={history?.history} />
+        </Box>
+      ) : (
+        <Text color="dark" textAlign="center" mt="12rem">
+          Não há histórico de predições
+        </Text>
+      )}
     </Box>
   )
 }
