@@ -7,7 +7,7 @@ export const DashTable = ({ history }: { history?: HistoryItem[] }) => {
   return (
     <Table.Root overflow="auto">
       <Table.Header>
-        <Table.Row bg="light" h="2rem" fontSize="1rem">
+        <Table.Row bg="greyLight" h="2rem" fontSize="1rem" p="0.5rem">
           <Table.ColumnHeader textAlign="center" color="dark">
             ID
           </Table.ColumnHeader>
