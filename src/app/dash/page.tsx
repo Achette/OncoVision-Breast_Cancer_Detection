@@ -1,16 +1,21 @@
 'use client'
 import { useCallback, useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useDispatch } from 'react-redux'
 import { LuCirclePlus } from 'react-icons/lu'
 import { Box, Button, Flex, Heading, Spinner, Text } from '@chakra-ui/react'
 import { DashTable } from '@/components/table'
 import { HistoryPayload } from '@/models'
 import { AppServices } from '@/service/app-services'
-import { useRouter } from 'next/navigation'
+import { AppDispatch } from '@/redux/store'
+import { resetState } from '@/redux/reducer/predict'
 
 export default function HomePage() {
   const router = useRouter()
   const [history, setHistory] = useState<HistoryPayload>()
   const [isLoading, setIsLoading] = useState<boolean>(true)
+
+   const dispatch = useDispatch<AppDispatch>()
 
   const getHistoryData = useCallback(async () => {
     setIsLoading(true)
@@ -40,7 +45,10 @@ export default function HomePage() {
           bgColor="darkSecondary"
           p="1rem 2rem"
           _hover={{ bgColor: 'secondary' }}
-          onClick={() => router.push('new-prediction')}
+          onClick={() => {
+            dispatch(resetState())
+            router.push('new-prediction')
+          }}
         >
           <LuCirclePlus />
           <Text ml={2}>Nova Predição</Text>
