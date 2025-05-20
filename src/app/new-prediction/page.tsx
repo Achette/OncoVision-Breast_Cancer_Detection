@@ -3,10 +3,13 @@
 import { useRouter } from 'next/navigation'
 import { Button, Flex, Heading, VStack, Text } from '@chakra-ui/react'
 import { IoArrowBackCircleOutline } from 'react-icons/io5'
-import { PredictionForm } from '@/components'
+import { PredictionForm, PredictionResult } from '@/components'
+import { getPredictionResult } from '@/redux/reducer/predict'
+import { useSelector } from 'react-redux'
 
 export default function NewPrediction() {
   const router = useRouter()
+  const prediction = useSelector(getPredictionResult)
 
   return (
     <VStack p="2rem 8rem">
@@ -28,6 +31,7 @@ export default function NewPrediction() {
       </Flex>
 
       <PredictionForm />
+      {prediction && <PredictionResult prediction={prediction} />}
     </VStack>
   )
 }
