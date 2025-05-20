@@ -52,7 +52,15 @@ export default function HomePage() {
           <Spinner size="xl" color="dark" />
         </Flex>
       ) : history ? (
-        <Box w="full" mt="2rem" overflowX="auto">
+        <Box
+          w="full"
+          mt="2rem"
+          overflowX="auto"
+          border="2px solid #2d3748"
+          borderRadius="0.5rem"
+          maxH="calc(100vh - 16rem)"
+          h="100%"
+        >
           <DashTable history={history?.history} />
         </Box>
       ) : (
