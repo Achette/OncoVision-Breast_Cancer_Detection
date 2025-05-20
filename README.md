@@ -14,6 +14,7 @@ O objetivo do OncoVision é fornecer uma interface intuitiva e eficiente para an
 - **Chakra UI**: Biblioteca de componentes para construção de interfaces de usuário acessíveis e responsivas.
 - **Axios**: Biblioteca para realizar requisições HTTP de forma simples e eficiente, utilizada para comunicação com a API do sistema.
 - **React-Icons**: Biblioteca que fornece uma ampla coleção de ícones populares para serem utilizados em projetos React, facilitando a personalização e a criação de interfaces visuais atraentes.
+- **Redux**: Biblioteca para gerenciamento de estado global, facilitando o compartilhamento e atualização de dados entre diferentes componentes da aplicação.
 
 ## 📂 Estrutura do Projeto
 
@@ -27,6 +28,7 @@ O objetivo do OncoVision é fornecer uma interface intuitiva e eficiente para an
 │   ├── constants/        # Constantes globais utilizadas no projeto.
 │   ├── hooks/            # Hooks personalizados para lógica reutilizável.
 │   ├── models/           # Definições de tipos e interfaces do TypeScript.
+│   ├── redux/            # Gerenciamento de estado global da aplicação com Redux.
 │   ├── services/         # Serviços para comunicação com APIs e lógica de negócios.
 │   ├── theme/            # Configurações de tema e estilos globais.
 │   ├── utils/            # Funções utilitárias e helpers.
