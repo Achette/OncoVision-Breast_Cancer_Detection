@@ -1,10 +1,11 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { SlLogout } from 'react-icons/sl'
 import logo from '../../../public/logo.svg'
 import { capitalize } from '@/utils/capitalize'
-import { getUser } from '@/hooks/useLocalStorage'
+import { clearSession, getUser } from '@/hooks/useLocalStorage'
 import {
   Flex,
   HStack,
@@ -16,6 +17,7 @@ import {
 
 export const Header = () => {
   const user = getUser()
+  const router = useRouter()
 
   return (
     <HStack
@@ -57,6 +59,10 @@ export const Header = () => {
           color="white"
           ml="1.25rem"
           _hover={{ bgColor: 'primaryDark' }}
+          onClick={() => {
+            clearSession()
+            router.push('/')
+          }}
         >
           <SlLogout />
           <Text ml={2}>Sair</Text>
