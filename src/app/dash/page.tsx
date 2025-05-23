@@ -9,15 +9,18 @@ import { HistoryPayload } from '@/models'
 import { AppServices } from '@/service/app-services'
 import { AppDispatch } from '@/redux/store'
 import { resetState } from '@/redux/reducer/predict'
+import { isAuthenticated } from '@/hooks/useLocalStorage'
 
 export default function HomePage() {
   const router = useRouter()
   const [history, setHistory] = useState<HistoryPayload>()
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
-   const dispatch = useDispatch<AppDispatch>()
+  const dispatch = useDispatch<AppDispatch>()
 
   const getHistoryData = useCallback(async () => {
+    if (!isAuthenticated()) return router.push('login')
+
     setIsLoading(true)
     try {
       const response = await AppServices.getHistory()
@@ -27,7 +30,7 @@ export default function HomePage() {
     } finally {
       setIsLoading(false)
     }
-  }, [])
+  }, [router])
 
   useEffect(() => {
     getHistoryData()
@@ -64,7 +67,7 @@ export default function HomePage() {
           w="full"
           mt="2rem"
           overflowX="auto"
-          border="2px solid #2d3748"
+          border="2px solid #4a5568"
           borderRadius="0.5rem"
           maxH="calc(100vh - 16rem)"
           h="100%"
