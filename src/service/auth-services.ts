@@ -18,4 +18,23 @@ export const UserService = {
     )
     return response.data
   },
+
+  register: async (
+    username: string,
+    password: string
+  ): Promise<LoginResponse> => {
+    const response = await axios.post(
+      `${BASE_URL}/register`,
+      {
+        username,
+        password,
+      },
+      {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
+    return response.data
+  },
 }
