@@ -2,8 +2,9 @@
 
 import { usePathname } from 'next/navigation'
 import { Flex } from '@chakra-ui/react'
-import { Header } from '@/components'
 import { Provider } from '@/components/ui/provider'
+import { Toaster } from '@/components/ui/toaster'
+import { Header } from '@/components'
 import { Provider as ReduxProvider } from 'react-redux'
 import { store } from '@/redux/store'
 
@@ -33,6 +34,7 @@ export default function ClientLayout({
           alignItems="center"
         >
           {children}
+          <Toaster />
         </Flex>
       </Provider>
     </ReduxProvider>

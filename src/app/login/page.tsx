@@ -2,7 +2,7 @@
 import { useCallback, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Toaster, toaster } from '@/components/ui/toaster'
+import { toaster } from '@/components/ui/toaster'
 import { saveToken, saveUser } from '@/hooks/useLocalStorage'
 import { UserService } from '@/service/auth-services'
 import { capitalize } from '@/utils/capitalize'
@@ -140,7 +140,6 @@ export default function Login() {
           </Text>
         </Box>
       </VStack>
-      <Toaster />
     </Box>
   )
 }
