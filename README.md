@@ -4,7 +4,14 @@ OncoVision é um projeto desenvolvido como parte do Projeto Integrador do 6º se
 
 ## 📋 Descrição
 
-O objetivo do OncoVision é fornecer uma interface intuitiva e eficiente para análise de imagens médicas, utilizando inteligência artificial para identificar possíveis sinais de câncer de mama. Este projeto combina tecnologias de frontend e backend para criar uma aplicação robusta e escalável.
+O objetivo do OncoVision é fornecer uma interface intuitiva e eficiente para análise de dados médicos, utilizando inteligência artificial para identificar possíveis sinais de câncer de mama. Este projeto combina tecnologias de frontend e backend, banco de dados e cloud para criar uma aplicação robusta e escalável.
+
+## 🧑‍🤝‍🧑 Integrantes
+
+- Eduarda Matos
+- Igor Carvalho Achete
+- João Paulo Falcuci
+- Victor Hugo Moro
 
 ## 🚀 Tecnologias Utilizadas
 
