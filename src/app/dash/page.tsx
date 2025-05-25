@@ -3,30 +3,42 @@ import { useCallback, useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useDispatch } from 'react-redux'
 import { LuCirclePlus } from 'react-icons/lu'
-import { Box, Button, Flex, Heading, Spinner, Text } from '@chakra-ui/react'
-import { DashTable } from '@/components/table'
-import { HistoryPayload } from '@/models'
+import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
+import { DashTable, LoadingSpinner } from '@/components'
 import { AppServices } from '@/service/app-services'
 import { AppDispatch } from '@/redux/store'
 import { resetState } from '@/redux/reducer/predict'
 import { isAuthenticated } from '@/hooks/useLocalStorage'
+import { HistoryPayload } from '@/models'
+import { toaster } from '@/components/ui/toaster'
 
 export default function HomePage() {
   const router = useRouter()
+  const dispatch = useDispatch<AppDispatch>()
+
   const [history, setHistory] = useState<HistoryPayload>()
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
-  const dispatch = useDispatch<AppDispatch>()
-
   const getHistoryData = useCallback(async () => {
-    if (!isAuthenticated()) return router.push('login')
-
+    if (!isAuthenticated()) {
+      toaster.create({
+        title: 'Atenção',
+        description: `Usuário não logado!`,
+        type: 'warning',
+      })
+      return router.push('login')
+    }
     setIsLoading(true)
     try {
       const response = await AppServices.getHistory()
       setHistory(response.data)
     } catch (error) {
-      console.error('Erro ao buscar histórico:', error)
+      console.error(error)
+      toaster.create({
+        title: 'Erro',
+        description: `Não foi possível carregar o histórico.`,
+        type: 'warning',
+      })
     } finally {
       setIsLoading(false)
     }
@@ -59,10 +71,8 @@ export default function HomePage() {
       </Flex>
 
       {isLoading ? (
-        <Flex justifyContent="center" alignItems="center" mt="12rem">
-          <Spinner size="xl" color="dark" />
-        </Flex>
-      ) : history ? (
+        <LoadingSpinner />
+      ) : history?.history.length ? (
         <Box
           w="full"
           mt="2rem"
