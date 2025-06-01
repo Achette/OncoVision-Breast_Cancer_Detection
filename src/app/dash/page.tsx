@@ -82,7 +82,7 @@ export default function HomePage() {
           maxH="calc(100vh - 16rem)"
           h="100%"
         >
-          <DashTable history={history?.history} />
+          <DashTable history={history.history} />
         </Box>
       ) : (
         <Text color="dark" textAlign="center" mt="12rem">

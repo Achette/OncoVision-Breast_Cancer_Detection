@@ -37,25 +37,25 @@ export const DashTable = ({ history }: { history?: HistoryItem[] }) => {
 
       <Table.Body>
         {history &&
-          history.map((item, index) => (
+          history?.map((item, index) => (
             <Table.Row key={index} bg="light" h="2.5rem" fontSize="1rem">
               <Table.Cell textAlign="center" color="dark">
                 {index + 1}
               </Table.Cell>
               <Table.Cell textAlign="center" color="dark">
-                {item.input.mean_area}
+                {item.mean_area}
               </Table.Cell>
               <Table.Cell textAlign="center" color="dark">
-                {item.input.mean_radius}
+                {item.mean_radius}
               </Table.Cell>
               <Table.Cell textAlign="center" color="dark">
-                {item.input.mean_texture}
+                {item.mean_texture}
               </Table.Cell>
               <Table.Cell textAlign="center" color="dark">
-                {item.input.mean_perimeter}
+                {item.mean_perimeter}
               </Table.Cell>
               <Table.Cell textAlign="center" color="dark">
-                {item.input.mean_smoothness}
+                {item.mean_smoothness}
               </Table.Cell>
               <Table.Cell textAlign="center">
                 <ResultBadge result={item.prediction} />
